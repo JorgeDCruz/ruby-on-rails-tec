@@ -20,3 +20,12 @@
 ruby bin/rails server
 ~~~
 
+## Create Controller 
+~~~
+bin/rails generate controller [NOMBRE] index --skip-routes
+~~~
+
+## Create Model
+~~~
+C:\...\bin rails generate model Article title:string body:text
+~~~
