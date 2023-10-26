@@ -1,0 +1,2 @@
+class TrainerModel < ApplicationRecord
+end
