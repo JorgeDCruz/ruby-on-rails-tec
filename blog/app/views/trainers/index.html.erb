@@ -1,0 +1,9 @@
+<h1>Trainers</h1>
+<h3><%= @trainers.name %></h3>
+<ul>
+    <% @pokemons.each do |pokemon| %>
+        <li>
+            <%= pokemon.pokemon_name %>
+        </li>
+    <% end %>
+</ul>
