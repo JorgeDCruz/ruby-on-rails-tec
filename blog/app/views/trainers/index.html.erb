@@ -1,9 +1,33 @@
-<h1>Trainers</h1>
-<h3><%= @trainers.name %></h3>
-<ul>
-    <% @pokemons.each do |pokemon| %>
-        <li>
-            <%= pokemon.pokemon_name %>
-        </li>
-    <% end %>
-</ul>
+<br>
+<br>
+<div class="container">
+    <h1>Pokedex de <%= @trainers.name %> </h1>
+    <br>
+    <div class="container vertical-center-container">
+        <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Type 1</th>
+            <th scope="col">Type 2</th>
+            </tr>
+        </thead>
+            <tbody>
+                <% @pokemons.each do |pokemon| %>
+                    <tr>
+                        <th scope="row"><%= pokemon.pokemon_id %></th>
+                        <td><%= pokemon.pokemon_name %></td>
+                        <td><%= pokemon.tipo1 %></td>
+                        <td><%= pokemon.tipo2 %></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+    <a href="/">Regresar</a>
+</div>
+
+
+
+
