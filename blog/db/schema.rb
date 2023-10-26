@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_10_26_192408) do
+ActiveRecord::Schema[7.1].define(version: 2023_10_26_195517) do
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.text "body"
@@ -41,4 +41,15 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_26_192408) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "trainers_pokemons", force: :cascade do |t|
+    t.integer "pokemon_model_id", null: false
+    t.integer "trainer_model_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pokemon_model_id"], name: "index_trainers_pokemons_on_pokemon_model_id"
+    t.index ["trainer_model_id"], name: "index_trainers_pokemons_on_trainer_model_id"
+  end
+
+  add_foreign_key "trainers_pokemons", "pokemon_models"
+  add_foreign_key "trainers_pokemons", "trainer_models"
 end
