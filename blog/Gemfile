@@ -67,11 +67,7 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem 'httparty'
-
 gem 'poke-api-v2'
-
-
 
 
 gem "cssbundling-rails", "~> 1.3"
