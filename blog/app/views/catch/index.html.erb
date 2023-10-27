@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12 py-5">
+            <h1>Hey, a wild <%= @pokemon_name %> appeared!</h1>
+        </div>
+        <div class="col-lg-4 col-md-5 col-sm-6">
+            <img class="img-fluid" src="<%= @pokemon_image %>" alt="<%= @pokemon_name %>" style="width: 100%;">
+        </div>
+        <div class="col-lg-8 col-md-7 col-sm-6">
+            <h3>What would you like to do?</h3>
+            <br>
+            <form action="/catch" method="post">
+                <input type="hidden" name="pokemon_id" value="<%= @pokemon_id %>">
+                <input type="hidden" name="pokemon_name" value="<%= @pokemon_name %>">
+                <%= link_to "Run away!", root_path, class: "btn btn-lg btn-danger" %>
+                <button type="submit" class="btn btn-lg btn-warning">Catch it!</button>
+            </form>
+        </div>
+    </div>
+</div>

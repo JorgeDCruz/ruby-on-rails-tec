@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12 py-5">
+            <h1>Oh no the wild <%= @pokemon_name.capitalize %> fled!</h1>
+        </div>
+        <div class="col-lg-4 col-md-5 col-sm-6">
+            <img class="img-fluid" src="<%= @pokemon_image %>" alt="<%= @pokemon_name %>" style="width: 100%;">
+            <br>
+
+            <%= link_to "Go back", root_path, class: "btn btn-lg btn-primary" %>
+        </div>
+    </div>
+</div>
