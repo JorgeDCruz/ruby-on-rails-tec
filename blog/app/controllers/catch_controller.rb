@@ -2,7 +2,7 @@ class CatchController < ApplicationController
   skip_before_action :verify_authenticity_token, :only => :create
 
   def index
-    pokemon_number = rand(1..640)
+    pokemon_number = rand(1..1010)
     @pokemon = PokeApi.get(pokemon: pokemon_number)
     @pokemon_name = @pokemon.name.capitalize
     @pokemon_image = "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/#{pokemon_number.to_s.rjust(3, '0')}.png"
@@ -12,7 +12,7 @@ class CatchController < ApplicationController
 
   def create
     @pokemon_id = params[:pokemon_id]
-    probability = rand(30..100)
+    probability = rand(1..100)
     if probability > 50
       pokemon = PokeApi.get(pokemon: @pokemon_id)
       pokemon_json = JSON.parse(pokemon.to_json).with_indifferent_access.slice :id, :name, :types
@@ -42,6 +42,6 @@ class CatchController < ApplicationController
   def fled
     @pokemon_name = params[:pokemon_name]
     @pokemon_id = params[:pokemon_id]
-    @pokemon_image = "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/#{@pokemon_id}.png"
+    @pokemon_image = "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/#{@pokemon_id.to_s.rjust(3, '0')}.png"
   end
 end

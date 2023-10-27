@@ -13,6 +13,7 @@
                 <table class="table table-bordered table-striped">
                     <thead>
                         <tr>
+                        <th scope="col">#</th>
                         <th scope="col">Pokemon ID</th>
                         <th scope="col">Name</th>
                         <th scope="col">Type</th>
@@ -20,8 +21,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <% @pokemons.each do |pokemon| %>
+                        <% @pokemons.each_with_index do |pokemon, index| %>
                             <tr>
+                                <th scope="row"><%= index + 1 %></th>
                                 <th scope="row"><%= pokemon.pokemon_id %></th>
                                 <td><%= pokemon.pokemon_name.capitalize %></td>
                                 <td><%= pokemon.tipo1.capitalize %></td>
