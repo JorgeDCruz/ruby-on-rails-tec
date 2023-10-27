@@ -1,33 +1,37 @@
-<br>
-<br>
 <div class="container text-center">
-    <h1><%= @trainers.name %>'s Pokedex</h1>
-    <br>
-    <div class="container vertical-center-container">
-        <table class="table table-bordered table-striped">
-            <thead>
-                <tr>
-                <th scope="col">Pokemon ID</th>
-                <th scope="col">Name</th>
-                <th scope="col">Type</th>
-                <th scope="col">Type</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% @pokemons.each do |pokemon| %>
-                    <tr>
-                        <th scope="row"><%= pokemon.pokemon_id %></th>
-                        <td><%= pokemon.pokemon_name.capitalize %></td>
-                        <td><%= pokemon.tipo1.capitalize %></td>
-                        <td><%= pokemon.tipo2 != "None" ? pokemon.tipo2.capitalize : "-----" %></td>
-                    </tr>
-                <% end %>
-            </tbody>
-        </table>
+    <div class="row">
+        <div class="col-12 py-3">
+            <h1><%= @trainers.name %>'s Pokedex</h1>
+            <br>
+            <% if @pokemons_name %>
+                <div class="alert alert-success" role="alert">
+                    <h4><%= @pokemons_name.capitalize %> was added to your Pokedex!</h4>
+                </div>
+            <% end %>
+            <br>
+            <div class="container vertical-center-container">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                        <th scope="col">Pokemon ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @pokemons.each do |pokemon| %>
+                            <tr>
+                                <th scope="row"><%= pokemon.pokemon_id %></th>
+                                <td><%= pokemon.pokemon_name.capitalize %></td>
+                                <td><%= pokemon.tipo1.capitalize %></td>
+                                <td><%= pokemon.tipo2 != "None" ? pokemon.tipo2.capitalize : "-----" %></td>
+                            </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </div>
+            <%= link_to "Go back", root_path, class: "btn btn-primary my-2" %>
+        </div>
     </div>
-    <%= link_to "Go back", root_path, class: "btn btn-primary" %>
 </div>
-
-
-
-

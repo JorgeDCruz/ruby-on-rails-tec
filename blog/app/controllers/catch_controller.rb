@@ -32,7 +32,7 @@ class CatchController < ApplicationController
       new_pokemon.save
       user = TrainerModel.find(1)
       user.pokemon_models << new_pokemon
-      redirect_to trainers_path
+      redirect_to trainers_path(pokemon_name: new_pokemon.pokemon_name)
     else
       @pokemon_name = params[:pokemon_name]
       redirect_to controllers: "catch", action: "fled", pokemon_id: @pokemon_id, pokemon_name: @pokemon_name
